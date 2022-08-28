@@ -1,9 +1,55 @@
 <h2>book list:</h2>
+<button (click)="handleClick()" [disabled]="isDisabled">Show Books</button>
+
+<input type="text" [(ngModel)]="myName"/>
+<p>{{myName}}</p>
+
+
 <ul>
+    <li>
+        <img [src]="src" [alt]="name">
+        {{name}} by {{author}}
+    </li>
 
     <li>
-        <img src="https://media.istockphoto.com/vectors/gold-decorative-frame-interwoven-vintage-ornament-flowers-and-leaves-vector-id1027179634?b=1&k=20&m=1027179634&s=170667a&w=0&h=SzKCX3EFBoF3ZAbqmMY0ifPtO55a8LlHULqI_5PCNtY=" alt="{{name}}">
-        {{name}} by {{author}}
+        <img [src]="src2" [alt]="name2">
+        {{name2}} by {{author2}}
     </li>
 </ul>
 
+
+
+<!-- 
+    Direktive sluze za dodatno manipulisanje elementima u Angular kodu.
+    To su build-in opcije koje Angular pruza radi lakseg rukovanja elementima
+    Postoje sledece vrste direktiva;
+
+    - Component:
+    komponente su same po sebi direktive (malo je apstraktno ali shvatices vremenom....valjda)
+
+    - Attribute directives:
+    sluze da promene svojstva elementima u vidu klasa, stilova itd...
+
+    -Structural directives:
+    sluze da dodajemo ili uklanjamo elemente odnosno da manipulisemo DOM stablom
+
+
+    Neke od Attribute direktiva:
+    --[(ngModel)] omogucava two-way data binding 
+    u ovom slucaju u isto vreme hvata input i setuje ga na datu varijablu 
+    odnosno menja funkciju koja bi se zvala handleInput(), 
+    ponasa se kao onChange u React-u (nesto slicno ofc)
+    da bi koristili ovaj modal moramo da importujemo formsModule u app.module komponenti.
+
+    --[(ngClass)] omogucava menjanje css klasa ili dodavanje i brisanje istih html elementima
+
+    --[(ngStyle)] omogucava menjanje stila elementima u html kodu
+
+
+    Neke od Structural direktiva:
+    --NgIf omogucava primenu if else uslova na html elemente
+    
+    --NgFor omogucava iteraciju targetiranih html elemenata ali i za ponavljanje funkcije nad njima
+
+    --NgSwitch omogucava koriscenje switch uslova na html elemente
+-->

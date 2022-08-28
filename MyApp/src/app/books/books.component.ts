@@ -9,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class BooksComponent implements OnInit {
   name: string = "Clean Code";
   author: string = "Robert C Martin";
-  src: string = "https://media.istockphoto.com/vectors/gold-decorative-frame-interwoven-vintage-ornament-flowers-and-leaves-vector-id1027179634?b=1&k=20&m=1027179634&s=170667a&w=0&h=SzKCX3EFBoF3ZAbqmMY0ifPtO55a8LlHULqI_5PCNtY="
+  src: string = "https://m.media-amazon.com/images/I/41xShlnTZTL._AC_UY218_.jpg"
+  
+  name2: string = "The Pragmatic Programmer";
+  author2: string = " Andrew Hunt";
+  src2: string = "https://images-na.ssl-images-amazon.com/images/I/41HXiIojloL._SX396_BO1,204,203,200_.jpg"
+  
+  isDisabled: boolean = false;
+
+  handleClick(){
+    console.log("radi");
+  }
+
+  myName :string = "";
+  
   constructor() { }
 
   ngOnInit(): void {
