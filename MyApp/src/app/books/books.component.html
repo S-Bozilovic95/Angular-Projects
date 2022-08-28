@@ -1,21 +1,23 @@
 <h2>book list:</h2>
-<button (click)="handleClick()" [disabled]="isDisabled">Show Books</button>
+<button (click)="isShowing = !isShowing">
+    <ng-container *ngIf="!isShowing">Show Books</ng-container>
+    <ng-container *ngIf="isShowing">Hide Books</ng-container>
+</button>
 
-<input type="text" [(ngModel)]="myName"/>
-<p>{{myName}}</p>
 
 
-<ul>
-    <li>
-        <img [src]="src" [alt]="name">
-        {{name}} by {{author}}
-    </li>
-
-    <li>
-        <img [src]="src2" [alt]="name2">
-        {{name2}} by {{author2}}
-    </li>
+<ul *ngIf="isShowing">
+    <ng-container *ngFor="let book of books; let i = index">
+        <li>
+            {{i+1}}
+            <img [src]="book.image" [alt]="book.name">
+            {{book.name}} by {{book.author}}
+        </li>
+    </ng-container>
 </ul>
+
+
+
 
 
 
@@ -50,6 +52,16 @@
     --NgIf omogucava primenu if else uslova na html elemente
     
     --NgFor omogucava iteraciju targetiranih html elemenata ali i za ponavljanje funkcije nad njima
+    u ovom slucaju on navodimo varijablu "book" koja sadrzi vrednosti jednog
+    elementa iz niza objekata "books",
+    Takodje mozemo definisati i index
 
     --NgSwitch omogucava koriscenje switch uslova na html elemente
+
+
+
+
+
+    <ng-container> je tag koji nam omogucava da u njega smestimo bilo koji sadrzaj
+        zgodan je kod uslova. Cilj je da se logika ukloni iz html tagova
 -->

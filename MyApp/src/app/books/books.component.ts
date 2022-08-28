@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Book {
+  name: string,
+  author: string,
+  image: string
+}
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -7,21 +13,27 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BooksComponent implements OnInit {
-  name: string = "Clean Code";
-  author: string = "Robert C Martin";
-  src: string = "https://m.media-amazon.com/images/I/41xShlnTZTL._AC_UY218_.jpg"
-  
-  name2: string = "The Pragmatic Programmer";
-  author2: string = " Andrew Hunt";
-  src2: string = "https://images-na.ssl-images-amazon.com/images/I/41HXiIojloL._SX396_BO1,204,203,200_.jpg"
-  
-  isDisabled: boolean = false;
 
-  handleClick(){
-    console.log("radi");
-  }
+  books: Book[] = [
+    {
+      name: "Clean Code",
+      author: "Robert C Martin",
+      image: "https://m.media-amazon.com/images/I/41xShlnTZTL._AC_UY218_.jpg"
+    },
+    {
+      name: "The Pragmatic Programmer",
+      author: " Andrew Hunt",
+      image: "https://images-na.ssl-images-amazon.com/images/I/41HXiIojloL._SX396_BO1,204,203,200_.jpg"
+  
+    }
 
-  myName :string = "";
+  ]
+
+  
+
+  isShowing: boolean = true;
+
+
   
   constructor() { }
 
