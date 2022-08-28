@@ -9,10 +9,10 @@
 <ul *ngIf="isShowing">
     <ng-container *ngFor="let book of books; let i = index">
         <li>
-            {{i+1}}
-            <img [src]="book.image" [alt]="book.name">
-            {{book.name}} by {{book.author}}
-        </li>
+            <article>{{i+1}} <img [src]="book.image" [alt]="book.name"></article>
+            <p>{{book.name | titlecase}} by {{book.author | titlecase}}</p>
+            <p>{{book.amount | currency: 'EUR'}}</p>
+        </li> 
     </ng-container>
 </ul>
 
@@ -64,4 +64,12 @@
 
     <ng-container> je tag koji nam omogucava da u njega smestimo bilo koji sadrzaj
         zgodan je kod uslova. Cilj je da se logika ukloni iz html tagova
+
+
+
+    Pipes (cevcice | ) su ugradjene funkcije uz pomoc kojih mozemo
+    menjati vrednosti ili izgled html elemenata, spisak pajpova postoji
+    u angular docs ali mozemo kreirati i svoje pajpove.
+    Koristimo ih tako sto posle vrednosti koju zelimo da menjamo
+    stavimo | i nakon toga ime pajpa.
 -->
