@@ -1,18 +1,9 @@
 <h2>book list:</h2>
-<button (click)="isShowing = !isShowing">
-    <ng-container *ngIf="!isShowing">Show Books</ng-container>
-    <ng-container *ngIf="isShowing">Hide Books</ng-container>
-</button>
-
 
 
 <ul *ngIf="isShowing">
-    <ng-container *ngFor="let book of books; let i = index">
-        <li>
-            <article>{{i+1}} <img [src]="book.image" [alt]="book.name"></article>
-            <p>{{book.name | titlecase}} by {{book.author | titlecase}}</p>
-            <p>{{book.amount | currency: 'EUR'}}</p>
-        </li> 
+    <ng-container *ngFor="let singleBook of books; let i = index">
+       <app-book (bookEmitter)="addToCart($event)" [book]="singleBook"></app-book>
     </ng-container>
 </ul>
 
@@ -72,4 +63,9 @@
     u angular docs ali mozemo kreirati i svoje pajpove.
     Koristimo ih tako sto posle vrednosti koju zelimo da menjamo
     stavimo | i nakon toga ime pajpa.
+
+
+
+    Prosledjivanje propsa se vrsi tako sto navedemo tagove i prosledimo im zeljene vrednosti
+    linija 6 koda
 -->

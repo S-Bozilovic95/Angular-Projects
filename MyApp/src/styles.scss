@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+
+    li{
+        width: 15em;
+        padding: 25px;
+        text-align: center;
+        border: 1px solid red;
+        margin: 5px;
+    
+        &:hover{
+            cursor: pointer;
+        }
+    
+        .title{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        img{
+            max-width: 10em;
+            height: 200px;
+        }
+    }
+}
